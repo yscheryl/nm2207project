@@ -1,0 +1,16 @@
+---
+title: "Data Story"
+---
+
+About this site
+
+```{}
+```
+
+It is undeniable that Taylor Swift has left a significant cultural impact in today’s society, evident not only through her numerous awards and Grammys, but also with her ongoing Eras Tour generating more than \$5 billion (Music Expert Expounds on Taylor Swift’s Unmatched Cultural Impact, n.d.).
+
+Additionally, she recently became the first person to receive the title of Person of the Year by Time Magazine for her achievement in the arts (ibid), underscoring her status as a cultural icon. Having been making music for almost 2 decades, a defining factor of her influence lies in the versatility of her music, where she started off her career with country music before transitioning to pop and indie folk genres (How Taylor Swift Masterminded Global Success, Explained by SOMD Experts \| School of Music and Dance, n.d.).
+
+Thus, examining the characteristics of her music throughout the years will provide an understanding about what led to this phenomenal success.
+
+This leads us to the research question at hand: "How do the characteristics of Taylor Swift's music vary across albums?" To do this, I picked out 3 key characteristics that define her music: (1) Danceability, (2) Acousticness, and (3) Tempo.

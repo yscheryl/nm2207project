@@ -1,0 +1,12 @@
+name: myshinyapp
+title: myshinyapp
+username: yscheryl
+account: yscheryl
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11617590
+bundleId: 8432149
+url: https://yscheryl.shinyapps.io/myshinyapp/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

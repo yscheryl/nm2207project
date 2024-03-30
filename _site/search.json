@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Data Story",
+    "section": "",
+    "text": "About this site\n\nIt is undeniable that Taylor Swift has left a significant cultural impact in today’s society, evident not only through her numerous awards and Grammys, but also with her ongoing Eras Tour generating more than $5 billion (Music Expert Expounds on Taylor Swift’s Unmatched Cultural Impact, n.d.).\nAdditionally, she recently became the first person to receive the title of Person of the Year by Time Magazine for her achievement in the arts (ibid), underscoring her status as a cultural icon. Having been making music for almost 2 decades, a defining factor of her influence lies in the versatility of her music, where she started off her career with country music before transitioning to pop and indie folk genres (How Taylor Swift Masterminded Global Success, Explained by SOMD Experts | School of Music and Dance, n.d.).\nThus, examining the characteristics of her music throughout the years will provide an understanding about what led to this phenomenal success.\nThis leads us to the research question at hand: “How do the characteristics of Taylor Swift’s music vary across albums?” To do this, I picked out 3 key characteristics that define her music: (1) Danceability, (2) Acousticness, and (3) Tempo."
+  },
+  {
+    "objectID": "datastory.html",
+    "href": "datastory.html",
+    "title": "Data Story",
+    "section": "",
+    "text": "About this site\n\nIt is undeniable that Taylor Swift has left a significant cultural impact in today’s society, evident not only through her numerous awards and Grammys, but also with her ongoing Eras Tour generating more than $5 billion (Music Expert Expounds on Taylor Swift’s Unmatched Cultural Impact, n.d.).\nAdditionally, she recently became the first person to receive the title of Person of the Year by Time Magazine for her achievement in the arts (ibid), underscoring her status as a cultural icon. Having been making music for almost 2 decades, a defining factor of her influence lies in the versatility of her music, where she started off her career with country music before transitioning to pop and indie folk genres (How Taylor Swift Masterminded Global Success, Explained by SOMD Experts | School of Music and Dance, n.d.).\nThus, examining the characteristics of her music throughout the years will provide an understanding about what led to this phenomenal success.\nThis leads us to the research question at hand: “How do the characteristics of Taylor Swift’s music vary across albums?” To do this, I picked out 3 key characteristics that define her music: (1) Danceability, (2) Acousticness, and (3) Tempo."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "yscheryl.github.io",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "datastory1.html",
+    "href": "datastory1.html",
+    "title": "Data Story",
+    "section": "",
+    "text": "About this site\n\nIt is undeniable that Taylor Swift has left a significant cultural impact in today’s society, evident not only through her numerous awards and Grammys, but also with her ongoing Eras Tour generating more than $5 billion (Music Expert Expounds on Taylor Swift’s Unmatched Cultural Impact, n.d.).\nAdditionally, she recently became the first person to receive the title of Person of the Year by Time Magazine for her achievement in the arts (ibid), underscoring her status as a cultural icon. Having been making music for almost 2 decades, a defining factor of her influence lies in the versatility of her music, where she started off her career with country music before transitioning to pop and indie folk genres (How Taylor Swift Masterminded Global Success, Explained by SOMD Experts | School of Music and Dance, n.d.).\nThus, examining the characteristics of her music throughout the years will provide an understanding about what led to this phenomenal success.\nThis leads us to the research question at hand: “How do the characteristics of Taylor Swift’s music vary across albums?” To do this, I picked out 3 key characteristics that define her music: (1) Danceability, (2) Acousticness, and (3) Tempo."
+  },
+  {
+    "objectID": "characteristics1.html",
+    "href": "characteristics1.html",
+    "title": "Characteristics",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\nlibrary(shiny)\n\nWarning: package 'shiny' was built under R version 4.3.3\n\nlibrary(ggplot2)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(readxl)\n\n# Import dataset\n\ndata &lt;- read_excel(\"tsfeatures.xlsx\")\n\nNew names:\n• `` -&gt; `...1`\n\n# Define albums to exclude\n\nalbums_to_exclude &lt;- c(\"folklore: the long pond studio sessions (from the Disney+ special) [deluxe edition]\", \"reputation Stadium Tour Surprise Song Playlist\", \"Speak Now World Tour Live\", \"Live From Clear Channel Stripped 2008\")\n\n# Filter out excluded albums\n\nfiltered_data &lt;- subset(data, !album_name %in% albums_to_exclude)\n\n# Define color palette for albums\n\nalbum_colors &lt;- rainbow(nrow(filtered_data))\n\n# Define UI for application\n\nui &lt;- fluidPage(\n\n# Application title\n\n  titlePanel(\"Characteristics of Taylor Swift's Music\"),\n\n# Tabbed layout with input and output definitions\n\n  tabsetPanel(\n  \n  # Tab for bar plots\n    tabPanel(\"characteristics\", \n             fluidRow( \n               column(width = 4, \n                      selectInput(inputId = \"feature_select\", \n                                  label = \"Select Feature:\", \n                                  choices = c(\"Danceability\", \"Acousticness\", \"Tempo\")), \n                      plotOutput(outputId = \"barplot\")) \n               ) \n             ),\n\n  # Tab for custom text\ntabPanel(\"Data Story\", \n         fluidRow( \n           column(width = 12, \n                  textOutput(\"custom_text_output\")) \n           )) \n) \n)\n\n# Define server logic required to generate the bar plots and custom text\n\nserver &lt;- function(input, output) {\n  \n  # Render bar plot based on selected characteristic\n  output$barplot &lt;- renderPlot({\n    feature &lt;- switch(input$feature_select,\n                      \"Danceability\" = \"danceability\",\n                      \"Acousticness\" = \"acousticness\",\n                      \"Tempo\" = \"tempo\")\n    ggplot(filtered_data, aes_string(x = \"album_name\", y = feature, fill = \"album_name\"))\n    geom_bar(stat = \"identity\")+\n      labs(title = paste(input$feature_select, \"of Taylor Swift Albums\"),\n           x = \"Album\",\n           y = input$feature_select) +\n      theme_minimal()+\n      theme(axis.text.x = element_text(angle = 45, hjust = 1))+\n      scale_fill_manual(values = album_colours)\n  })\n}\n\nshinyApp(ui = ui, server = server)\n\nShiny applications not supported in static R Markdown documents"
+  }
+]

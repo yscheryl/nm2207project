@@ -1,0 +1,14 @@
+{
+  "hash": "7e82cd0cff4b8f38f8bc31ad5cc8144e",
+  "result": {
+    "markdown": "---\ntitle: \"Characteristics\"\n---\n\n::: {.cell}\n\n:::\n\n\n`<iframe height=\"400\" width=\"100%\" frameborder=\"no\" src=\"https://yscheryl.shinyapps.io/myshinyapp/\"`{=html}\n\n</iframe>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
