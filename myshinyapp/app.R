@@ -28,7 +28,7 @@ ui <- fluidPage(
   tabsetPanel(
     
     # Tab for bar plots
-    tabPanel("characteristics", 
+    tabPanel("Bar Plots", 
              fluidRow( 
                column(width = 4, 
                       selectInput(inputId = "feature_select", 
@@ -62,13 +62,16 @@ server <- function(input, output) {
                       "Danceability" = "danceability",
                       "Acousticness" = "acousticness",
                       "Tempo" = "tempo")
+    # Adjust plot size for readability
+    options(repr.plot.width = 60, repr.plot.height = 10) # Adjust the width and height as needed
     ggplot(filtered_data, aes_string(x = "album_name", y = feature, fill = "album_name")) +
     geom_bar(stat = "identity") +
       labs(title = paste(input$feature_select, "of Taylor Swift Albums"),
            x = "Album",
            y = input$feature_select) +
       theme_minimal()+
-      theme(axis.text.x = element_text(angle = 45, hjust = 1))
+      theme(axis.text.x = element_text(angle = 45, hjust = 1),
+    text = element_text(size = 12)) # Adjust text size as needed
   })
 }
 
