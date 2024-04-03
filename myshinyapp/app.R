@@ -23,21 +23,27 @@ ui <- fluidPage(
   
   titlePanel("Characteristics of Taylor Swift's Music"),
   
-  # Tabbed layout with input and output definitions
+# Tabbed layout with input and output definitions
+tabsetPanel(
+  # Tab for bar plots
+  tabPanel("Bar Plots", 
+           fluidRow( 
+             column(width = 4, 
+                    selectInput(inputId = "feature_select", 
+                                label = "Select Feature:", 
+                                choices = c("Danceability", "Acousticness", "Tempo")), 
+                    plotOutput(outputId = "barplot")) 
+           ) 
+  ),
   
-  tabsetPanel(
-    
-    # Tab for bar plots
-    tabPanel("Bar Plots", 
-             fluidRow( 
-               column(width = 4, 
-                      selectInput(inputId = "feature_select", 
-                                  label = "Select Feature:", 
-                                  choices = c("Danceability", "Acousticness", "Tempo")), 
-                      plotOutput(outputId = "barplot")) 
-             ) 
-    )
-  ) 
+  # Tab for analysis
+  tabPanel("Analysis",
+           fluidRow(
+             column(width = 12,
+                    p("This is some analysis text. You can write your analysis content here.")
+             )
+           )
+  )
 )
 
 # Define server logic required to generate the bar plots and custom text
@@ -63,7 +69,7 @@ server <- function(input, output) {
                       "Acousticness" = "acousticness",
                       "Tempo" = "tempo")
     # Adjust plot size for readability
-    options(repr.plot.width = 60, repr.plot.height = 10) # Adjust the width and height as needed
+    options(repr.plot.width = 100, repr.plot.height = 10) # Adjust the width and height as needed
     ggplot(filtered_data, aes_string(x = "album_name", y = feature, fill = "album_name")) +
     geom_bar(stat = "identity") +
       labs(title = paste(input$feature_select, "of Taylor Swift Albums"),
