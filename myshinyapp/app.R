@@ -7,13 +7,10 @@
 #    https://shiny.posit.co/
 #
 
-
 library(shiny)
 library(ggplot2)
 library(dplyr)
 library(readxl)
-
-
 
 # Define UI for application
 
@@ -40,7 +37,7 @@ tabsetPanel(
   tabPanel("Analysis",
            fluidRow(
              column(width = 12,
-                    p("This is some analysis text. You can write your analysis content here.")
+                    p("Test analysis of bar plots.")
              )
            )
   )
