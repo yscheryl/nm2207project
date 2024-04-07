@@ -42,6 +42,7 @@ tabsetPanel(
            )
   )
 )
+)
 
 # Define server logic required to generate the bar plots and custom text
 
